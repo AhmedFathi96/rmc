@@ -1,0 +1,161 @@
+[2025-01-18 21:06:28] INFO: Ingredients seeded.
+[2025-01-18 21:06:28] INFO: Products seeded.
+[2025-01-18 21:06:28] INFO: Orders seeded.
+[2025-01-18 21:06:28] INFO: Database connection closed.
+[2025-01-18 21:06:28] INFO: Seeding completed successfully.
+[2025-01-19 03:48:30] INFO: Server running on port 3000
+[2025-01-19 03:48:36] INFO: Incoming request to create an order
+[2025-01-19 03:48:36] INFO: Calling create order controller with args
+[2025-01-19 03:48:36] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:48:36] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:48:36] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:48:36] INFO: Order created successfully
+[2025-01-19 03:50:29] INFO: Server running on port 3000
+[2025-01-19 03:50:39] INFO: Incoming request to create an order
+[2025-01-19 03:50:39] INFO: Calling create order controller with args
+[2025-01-19 03:50:39] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:50:39] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:50:39] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:50:39] INFO: Order created successfully
+[2025-01-19 03:50:40] INFO: Incoming request to create an order
+[2025-01-19 03:50:40] INFO: Calling create order controller with args
+[2025-01-19 03:50:40] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:50:40] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:50:40] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:50:40] INFO: Order created successfully
+[2025-01-19 03:50:41] INFO: Incoming request to create an order
+[2025-01-19 03:50:41] INFO: Calling create order controller with args
+[2025-01-19 03:50:41] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:50:41] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:50:41] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:50:41] INFO: Order created successfully
+[2025-01-19 03:51:27] INFO: Incoming request to create an order
+[2025-01-19 03:51:27] INFO: Calling create order controller with args
+[2025-01-19 03:51:27] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:51:27] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:51:27] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:51:27] INFO: Order created successfully
+[2025-01-19 03:51:28] INFO: Incoming request to create an order
+[2025-01-19 03:51:28] INFO: Calling create order controller with args
+[2025-01-19 03:51:28] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:51:28] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:51:28] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:51:28] INFO: Order created successfully
+[2025-01-19 03:51:29] INFO: Incoming request to create an order
+[2025-01-19 03:51:29] INFO: Calling create order controller with args
+[2025-01-19 03:51:29] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:51:29] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:51:29] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:51:29] INFO: Order created successfully
+[2025-01-19 03:51:30] INFO: Incoming request to create an order
+[2025-01-19 03:51:30] INFO: Calling create order controller with args
+[2025-01-19 03:51:31] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 03:51:31] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 03:51:31] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 03:51:31] INFO: Order created successfully
+[2025-01-19 03:51:33] INFO: Incoming request to create an order
+[2025-01-19 03:51:33] INFO: Calling create order controller with args
+[2025-01-19 03:51:33] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 03:51:33] ERROR: Error occurred while processing create order controller Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 03:51:33] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 03:59:15] INFO: Server running on port 3000
+[2025-01-19 04:00:04] INFO: Server running on port 3000
+[2025-01-19 04:00:33] INFO: Incoming request to create an order
+[2025-01-19 04:00:33] INFO: Calling create order controller with args
+[2025-01-19 04:00:34] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:00:34] ERROR: Error occurred while processing create order controller Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:00:34] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:01:15] INFO: Incoming request to create an order
+[2025-01-19 04:01:15] INFO: Calling create order controller with args
+[2025-01-19 04:01:15] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:15] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:15] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:15] INFO: Order created successfully
+[2025-01-19 04:01:34] INFO: Incoming request to create an order
+[2025-01-19 04:01:34] INFO: Calling create order controller with args
+[2025-01-19 04:01:34] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:34] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:34] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:34] INFO: Order created successfully
+[2025-01-19 04:01:35] INFO: Incoming request to create an order
+[2025-01-19 04:01:35] INFO: Calling create order controller with args
+[2025-01-19 04:01:35] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:35] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:35] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:35] INFO: Order created successfully
+[2025-01-19 04:01:36] INFO: Incoming request to create an order
+[2025-01-19 04:01:36] INFO: Calling create order controller with args
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:36] INFO: Order created successfully
+[2025-01-19 04:01:36] INFO: Incoming request to create an order
+[2025-01-19 04:01:36] INFO: Calling create order controller with args
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:36] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:36] INFO: Order created successfully
+[2025-01-19 04:01:37] INFO: Incoming request to create an order
+[2025-01-19 04:01:37] INFO: Calling create order controller with args
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:37] INFO: Order created successfully
+[2025-01-19 04:01:37] INFO: Incoming request to create an order
+[2025-01-19 04:01:37] INFO: Calling create order controller with args
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:01:37] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:01:37] INFO: Order created successfully
+[2025-01-19 04:02:10] INFO: Incoming request to create an order
+[2025-01-19 04:02:10] INFO: Calling create order controller with args
+[2025-01-19 04:02:10] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 04:02:10] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 04:02:10] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 04:02:10] INFO: Order created successfully
+[2025-01-19 04:03:47] INFO: Server running on port 3000
+[2025-01-19 04:03:52] INFO: Incoming request to create an order
+[2025-01-19 04:03:52] INFO: Calling create order controller with args
+[2025-01-19 04:03:52] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:03:52] ERROR: Error occurred while processing create order controller Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:03:52] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:47:11] INFO: Server running on port 3000
+[2025-01-19 04:47:14] INFO: Incoming request to create an order
+[2025-01-19 04:47:14] INFO: Calling create order controller with args
+[2025-01-19 04:47:15] ERROR: Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:47:15] ERROR: Error occurred while processing create order controller Stock for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb is insufficient
+[2025-01-19 04:47:15] ERROR: Error in /orders POST route
+[2025-01-19 04:47:15] ERROR: Error occurred
+[2025-01-19 05:32:15] INFO: Server running on port 3000
+[2025-01-19 05:36:48] INFO: Worker is ready to process jobs
+[2025-01-19 05:37:32] INFO: Server running on port 3000
+[2025-01-19 05:37:38] INFO: Incoming request to create an order
+[2025-01-19 05:37:38] INFO: Calling create order controller with args
+[2025-01-19 05:37:39] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 05:37:39] INFO: Sending email for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb
+[2025-01-19 05:37:39] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 05:37:39] INFO: Sending email for ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe
+[2025-01-19 05:37:39] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 05:37:39] INFO: Sending email for ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188
+[2025-01-19 05:37:39] INFO: Order created successfully
+[2025-01-19 05:38:50] INFO: Server running on port 3000
+[2025-01-19 05:38:53] INFO: Incoming request to create an order
+[2025-01-19 05:38:53] INFO: Calling create order controller with args
+[2025-01-19 05:38:54] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 05:38:54] INFO: Sending email for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb
+[2025-01-19 05:38:54] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 05:38:54] INFO: Sending email for ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe
+[2025-01-19 05:38:54] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 05:38:54] INFO: Sending email for ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188
+[2025-01-19 05:38:54] INFO: Order created successfully
+[2025-01-19 05:41:19] INFO: Worker is ready to process jobs
+[2025-01-19 05:41:24] INFO: Server running on port 3000
+[2025-01-19 05:41:28] INFO: Incoming request to create an order
+[2025-01-19 05:41:28] INFO: Calling create order controller with args
+[2025-01-19 05:41:28] INFO: Checking remaining ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb percentage
+[2025-01-19 05:41:28] INFO: Sending email for ingredient bc2adeb3-8b83-45e5-b216-5efde10242fb
+[2025-01-19 05:41:28] INFO: Checking remaining ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe percentage
+[2025-01-19 05:41:28] INFO: Sending email for ingredient c1c26c0d-a599-4604-9bd3-dba744fd74fe
+[2025-01-19 05:41:28] INFO: Checking remaining ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188 percentage
+[2025-01-19 05:41:28] INFO: Sending email for ingredient 63f8b65a-0471-4eb4-a6b1-1000daf14188
+[2025-01-19 05:41:28] INFO: Order created successfully

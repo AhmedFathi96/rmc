@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: 'postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm'
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      EMAIL_HOST: 'smtp-relay.brevo.com'
+      EMAIL_PORT: 587
+      EMAIL_USER: '83d50c001@smtp-brevo.com'
+      EMAIL_PASS: 'TVOtr7LqGh5ASB6P'
+      EMAIL_FROM: 'ahmedfathimohamed96@gmail.com'
+      EMAIL_TO: 'ahmedfathimohamed27@gmail.com'
+    depends_on:
+      - postgres
+      - redis
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker.Dockerfile
+    environment:
+      DATABASE_URL: 'postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm'
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      EMAIL_HOST: 'smtp-relay.brevo.com'
+      EMAIL_PORT: 587
+      EMAIL_USER: '83d50c001@smtp-brevo.com'
+      EMAIL_PASS: 'TVOtr7LqGh5ASB6P'
+      EMAIL_FROM: 'ahmedfathimohamed96@gmail.com'
+      EMAIL_TO: 'ahmedfathimohamed27@gmail.com'
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: rcm_admin
+      POSTGRES_PASSWORD: P@ss2233Meow
+      POSTGRES_DB: rcm
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres-data:

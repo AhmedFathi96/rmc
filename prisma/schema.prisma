@@ -1,0 +1,68 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Products {
+    id   String @id @default(uuid())
+    name String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    ingredients ProductIngredient[]
+    orders      OrderProduct[]
+}
+
+model Ingredients {
+    id        String  @id @default(uuid())
+    name      String
+    stock     Float
+    emailSent Boolean @default(false)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    products ProductIngredient[]
+}
+
+model Orders {
+    id String @id @default(uuid())
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    products OrderProduct[]
+}
+
+model ProductIngredient {
+    productId    String
+    ingredientId String
+    quantity     Float
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    Product    Products    @relation(fields: [productId], references: [id])
+    Ingredient Ingredients @relation(fields: [ingredientId], references: [id])
+
+    @@id([productId, ingredientId])
+}
+
+model OrderProduct {
+    orderId   String
+    productId String
+    quantity  Int
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    Order   Orders   @relation(fields: [orderId], references: [id])
+    Product Products @relation(fields: [productId], references: [id])
+
+    @@id([orderId, productId])
+}
