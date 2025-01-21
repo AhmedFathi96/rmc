@@ -1,43 +1,43 @@
 # Stage 1: Builder
-FROM node:20-alpine AS builder
+FROM node:20-slim AS builder
 
-# Set working directory
 WORKDIR /app
-
-# Install build dependencies
-RUN apk add --no-cache libc6-compat python3 make g++
-
-# Copy package.json and yarn.lock
-COPY package.json yarn.lock ./
 
 # Install dependencies
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-# Copy the rest of the application files
+# Copy application files
 COPY . .
 
-# Build the app
-RUN yarn build
-
+# Generate Prisma Client
 RUN npx prisma generate
 
-# Stage 2: Runner
-FROM node:20-alpine
+# Build application
+RUN yarn build
 
-# Set working directory
+# Stage 2: Runner
+FROM node:20-slim
+
 WORKDIR /app
 
-# Copy the built application from the builder stage
+# Install system dependencies
+RUN apt-get update && apt-get install -y openssl curl && rm -rf /var/lib/apt/lists/*
+
+# Copy files from builder
 COPY --from=builder /app /app
+
+# Copy seed script
+COPY ./prisma/seed.js /app/prisma/seed.js
+
+# Install production dependencies
+RUN yarn install --production
+
+# Run database migrations, seed data, and start the app
+CMD sh -c "npx wait-on tcp:postgres:5432 tcp:redis:6379 && \
+    npx prisma migrate deploy && \
+    node prisma/seed.js && \
+    node dist/index.js"
 
 # Expose the application port
 EXPOSE 3000
-
-# Set environment variables
-ENV NODE_ENV=production
-
-# Install production dependencies only
-RUN yarn install --production
-
-# Start the application
-CMD ["node", "dist/index.js"]

@@ -20,9 +20,8 @@ async function main() {
 
     logger.info('Ingredients seeded.');
 
-    // Seed Products
     const burgerId = uuidv4();
-
+    console.log("Product id is: ", burgerId);
     await prisma.products.create({
       data: {
         id: burgerId,

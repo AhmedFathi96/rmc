@@ -1,7 +1,7 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 export class IngredientsRepository {
-    constructor(private readonly prisma: PrismaClient| Prisma.TransactionClient){}
+    constructor(private readonly prisma: PrismaClient){}
 
     async findOneIngredientById(query: { id: string }) {
         return await this.prisma.ingredients.findUnique({

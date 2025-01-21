@@ -1,7 +1,7 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import {  PrismaClient } from "@prisma/client";
 
 export class OrdersRepository {
-    constructor(private readonly prisma: PrismaClient | Prisma.TransactionClient){}
+    constructor(private readonly prisma: PrismaClient){}
 
     async createOrder(args: {products: {productId: string, quantity: number}[]}) {
         return await this.prisma.orders.create({

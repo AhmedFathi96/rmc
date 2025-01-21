@@ -2,15 +2,13 @@ import { ingredientsService, ordersService, productsService } from "../services"
 import { Ingredient } from "../types";
 import { checkRemainingIngredientsPercentage } from "../utils";
 import logger from "../utils/logger";
-import { transactionWrapper } from "../utils/prismaClient";
 import { sendEmail } from "./emailController";
 
 export const CreateOrder = async (args: { products: { productId: string; quantity: number }[] }) => {
     logger.info("Calling create order controller with args");
 
     try {
-        return await transactionWrapper(async (prisma) => {
-            const ingredientUpdates = new Map<
+        const ingredientUpdates = new Map<
                 string,
                 { updatedStock: number; consumedQuantity: number; ingredient: Ingredient }
             >();
@@ -75,7 +73,6 @@ export const CreateOrder = async (args: { products: { productId: string; quantit
             await ordersService.createOrder(args);
 
             logger.info("Order created successfully");
-        });
     } catch (error) {
         logger.error("Error occurred while processing create order controller", error);
         throw error;

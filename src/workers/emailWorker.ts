@@ -4,8 +4,8 @@ import logger from '../utils/logger';
 import nodemailer from 'nodemailer';
 
 const connection = new Redis({
-    host: process.env.REDIS_HOST,
-    port: Number(process.env.REDIS_PORT),
+    host: process.env.REDIS_HOST || 'localhost',
+    port: Number(process.env.REDIS_PORT || '6379'),
 });
 
 connection.on('connect', () => {

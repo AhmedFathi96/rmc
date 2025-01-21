@@ -1,13 +1,14 @@
 {
   "name": "RMC",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "worker": "node dist/worker.js"
+    "worker": "node dist/worker.js",
+    "seed": "ts-node prisma/seed.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -24,7 +25,9 @@
     "ioredis": "^5.4.2",
     "nodemailer": "^6.9.16",
     "prisma": "5.12.0",
+    "ts-node": "^10.9.2",
     "uuid": "^11.0.5",
+    "wait-on": "^8.0.2",
     "winston": "^3.17.0",
     "zod": "^3.24.1"
   },
@@ -33,7 +36,6 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
     "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
   }
 }

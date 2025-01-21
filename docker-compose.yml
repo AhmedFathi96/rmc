@@ -6,38 +6,46 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "${APP_PORT}:3000"
     environment:
-      DATABASE_URL: 'postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm'
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      EMAIL_HOST: 'smtp-relay.brevo.com'
-      EMAIL_PORT: 587
-      EMAIL_USER: '83d50c001@smtp-brevo.com'
-      EMAIL_PASS: 'TVOtr7LqGh5ASB6P'
-      EMAIL_FROM: 'ahmedfathimohamed96@gmail.com'
-      EMAIL_TO: 'ahmedfathimohamed27@gmail.com'
+      - DATABASE_URL=postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm_admin
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_PORT=${EMAIL_PORT}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASS=${EMAIL_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - EMAIL_TO=${EMAIL_TO}
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   worker:
     build:
       context: .
       dockerfile: worker.Dockerfile
     environment:
-      DATABASE_URL: 'postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm'
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      EMAIL_HOST: 'smtp-relay.brevo.com'
-      EMAIL_PORT: 587
-      EMAIL_USER: '83d50c001@smtp-brevo.com'
-      EMAIL_PASS: 'TVOtr7LqGh5ASB6P'
-      EMAIL_FROM: 'ahmedfathimohamed96@gmail.com'
-      EMAIL_TO: 'ahmedfathimohamed27@gmail.com'
+      - DATABASE_URL=postgresql://rcm_admin:P@ss2233Meow@postgres:5432/rcm_admin
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'ping'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   postgres:
     image: postgres:15
@@ -45,15 +53,27 @@ services:
     environment:
       POSTGRES_USER: rcm_admin
       POSTGRES_PASSWORD: P@ss2233Meow
-      POSTGRES_DB: rcm
+      POSTGRES_DB: rcm_admin
+    ports:
+      - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rcm_admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
-    image: redis:7
+    image: redis:7.4.2
     restart: always
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres-data:

@@ -11,20 +11,6 @@ export const client = new PrismaClient({
 })
 
 
-export const transactionWrapper = async <T>(
-  fn: (transactionPrisma: Prisma.TransactionClient) => Promise<T>
-): Promise<T> => {
-  try {
-    return await client.$transaction(async (transactionPrisma) => {
-      return await fn(transactionPrisma);
-    });
-  } catch (error) {
-    logger.error('Transaction failed:', error);
-    throw error;
-  }
-};
-
-
 export const isPrismaHealthy = async (): Promise<boolean> => {
   try {
     await client.$queryRaw`SELECT 1`;
