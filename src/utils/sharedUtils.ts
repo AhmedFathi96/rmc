@@ -7,8 +7,27 @@ export const checkRemainingIngredientsPercentage = async (args: {
 }): Promise<number> => {
   logger.info(`Checking remaining ingredient ${args.ingredient.id} percentage`)
   try {
-    const updatedStock = args.ingredient.stock - args.consumedQuantity
-    return (updatedStock / args.ingredient.stock) * 100
+    const { ingredient, consumedQuantity } = args
+
+    if (ingredient.stock <= 0) {
+      throw new Error(`Stock for ingredient ${ingredient.id} is invalid`)
+    }
+
+    if (consumedQuantity < 0) {
+      throw new Error(
+        `Consumed quantity for ingredient ${ingredient.id} cannot be negative`
+      )
+    }
+
+    const updatedStock = ingredient.stock - consumedQuantity
+
+    if (updatedStock < 0) {
+      throw new Error(
+        `Insufficient stock for ingredient ${ingredient.id}. Stock cannot be negative.`
+      )
+    }
+
+    return (updatedStock / ingredient.stock) * 100
   } catch (error) {
     logger.error(
       `Error happened while checking remaining ingredient ${args.ingredient.id} percentage`,

@@ -1,19 +1,25 @@
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 
 export class IngredientsRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
-  async findOneIngredientById(query: { id: string }) {
-    return await this.prisma.ingredients.findUnique({
+  async findOneIngredientById(
+    query: { id: string },
+    tx?: Prisma.TransactionClient
+  ) {
+    const prismaClient = tx || this.prisma
+    return await prismaClient.ingredients.findUnique({
       where: query,
     })
   }
 
   async updateStockByIngredientId(
     query: { id: string },
-    args: { stock?: number; emailSent?: boolean }
+    args: { stock?: number; emailSent?: boolean },
+    tx?: Prisma.TransactionClient
   ) {
-    return await this.prisma.ingredients.update({
+    const prismaClient = tx || this.prisma
+    return await prismaClient.ingredients.update({
       where: query,
       data: args,
     })

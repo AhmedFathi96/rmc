@@ -1,4 +1,5 @@
 import { Queue } from 'bullmq'
+import logger from '../utils/logger'
 
 export const emailQueue = new Queue('send-email', {
   connection: {
@@ -17,10 +18,10 @@ export const emailQueue = new Queue('send-email', {
 })
 
 emailQueue.on('error', (err) => {
-  console.error('Queue connection error:', err)
+  logger.error('Queue connection error:', err)
 })
 
-console.log('Queue is connected to Redis:', {
+logger.info('Queue is connected to Redis:', {
   host: process.env.REDIS_HOST,
   port: Number(process.env.REDIS_PORT),
 })

@@ -33,9 +33,9 @@ app.listen(port, () => {
   logger.info(`Server running on port ${port}`)
   transporter.verify((error, success) => {
     if (error) {
-      console.error('SMTP connection error:', error)
+      logger.error('SMTP connection error:', error)
     } else {
-      console.log('SMTP connection successful:', success)
+      logger.info('SMTP connection successful:', success)
     }
   })
 })

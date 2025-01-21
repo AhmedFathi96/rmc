@@ -1,27 +1,45 @@
-import { PrismaClient } from '@prisma/client';
-import { v4 as uuidv4 } from 'uuid';
-import logger from '../src/utils/logger';
+import { PrismaClient } from '@prisma/client'
+import { v4 as uuidv4 } from 'uuid'
+import logger from '../src/utils/logger'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 async function main() {
   try {
-    const beefId = uuidv4();
-    const cheeseId = uuidv4();
-    const onionId = uuidv4();
+    const beefId = uuidv4()
+    const cheeseId = uuidv4()
+    const onionId = uuidv4()
 
     await prisma.ingredients.createMany({
       data: [
-        { id: beefId, name: 'Beef', stock: 20000, createdAt: new Date(), updatedAt: new Date() }, // 20kg
-        { id: cheeseId, name: 'Cheese', stock: 5000, createdAt: new Date(), updatedAt: new Date() }, // 5kg
-        { id: onionId, name: 'Onion', stock: 1000, createdAt: new Date(), updatedAt: new Date() }, // 1kg
+        {
+          id: beefId,
+          name: 'Beef',
+          stock: 20000,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }, // 20kg
+        {
+          id: cheeseId,
+          name: 'Cheese',
+          stock: 5000,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }, // 5kg
+        {
+          id: onionId,
+          name: 'Onion',
+          stock: 1000,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }, // 1kg
       ],
-    });
+    })
 
-    logger.info('Ingredients seeded.');
+    logger.info('Ingredients seeded.')
 
-    const burgerId = uuidv4();
-    console.log("Product id is: ", burgerId);
+    const burgerId = uuidv4()
+    logger.info(`Product id is: ================> ${burgerId}`)
     await prisma.products.create({
       data: {
         id: burgerId,
@@ -30,17 +48,32 @@ async function main() {
         updatedAt: new Date(),
         ingredients: {
           create: [
-            { ingredientId: beefId, quantity: 150, createdAt: new Date(), updatedAt: new Date() }, // 150g Beef
-            { ingredientId: cheeseId, quantity: 30, createdAt: new Date(), updatedAt: new Date() }, // 30g Cheese
-            { ingredientId: onionId, quantity: 20, createdAt: new Date(), updatedAt: new Date() }, // 20g Onion
+            {
+              ingredientId: beefId,
+              quantity: 150,
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            }, // 150g Beef
+            {
+              ingredientId: cheeseId,
+              quantity: 30,
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            }, // 30g Cheese
+            {
+              ingredientId: onionId,
+              quantity: 20,
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            }, // 20g Onion
           ],
         },
       },
-    });
+    })
 
-    logger.info('Products seeded.');
+    logger.info('Products seeded.')
 
-    const orderId = uuidv4();
+    const orderId = uuidv4()
 
     await prisma.orders.create({
       data: {
@@ -49,35 +82,40 @@ async function main() {
         updatedAt: new Date(),
         products: {
           create: [
-            { productId: burgerId, quantity: 2, createdAt: new Date(), updatedAt: new Date() }, // 2 Burgers
+            {
+              productId: burgerId,
+              quantity: 2,
+              createdAt: new Date(),
+              updatedAt: new Date(),
+            }, // 2 Burgers
           ],
         },
       },
-    });
+    })
 
-    logger.info('Orders seeded.');
+    logger.info('Orders seeded.')
   } catch (error: unknown) {
     if (error instanceof Error) {
-      logger.error(`Seeding failed: ${error.message}`);
+      logger.error(`Seeding failed: ${error.message}`)
     } else {
-      logger.error('Seeding failed with an unknown error.');
+      logger.error('Seeding failed with an unknown error.')
     }
-    process.exit(1);
+    process.exit(1)
   } finally {
-    await prisma.$disconnect();
-    logger.info('Database connection closed.');
+    await prisma.$disconnect()
+    logger.info('Database connection closed.')
   }
 }
 
 main()
   .then(() => {
-    logger.info('Seeding completed successfully.');
+    logger.info('Seeding completed successfully.')
   })
   .catch((error: unknown) => {
     if (error instanceof Error) {
-      logger.error(`Unexpected error: ${error.message}`);
+      logger.error(`Unexpected error: ${error.message}`)
     } else {
-      logger.error('Unexpected error occurred.');
+      logger.error('Unexpected error occurred.')
     }
-    process.exit(1);
-  });
+    process.exit(1)
+  })

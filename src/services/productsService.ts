@@ -1,11 +1,18 @@
+import { Prisma } from '@prisma/client'
 import { productsRepository, ProductsRepository } from '../repos'
 import logger from '../utils/logger'
 
 export class ProductsService {
   constructor(private readonly productsRepository: ProductsRepository) {}
-  async findOneProductById(query: { id: string }) {
+  async findOneProductById(
+    query: { id: string },
+    tx?: Prisma.TransactionClient
+  ) {
     try {
-      const product = await this.productsRepository.findOneProductById(query)
+      const product = await this.productsRepository.findOneProductById(
+        query,
+        tx
+      )
 
       if (!product) {
         logger.error(`Product with id: ${query.id} not found`)

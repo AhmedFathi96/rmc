@@ -1,13 +1,18 @@
+import { Prisma } from '@prisma/client'
 import { ingredientsRepository, IngredientsRepository } from '../repos'
 import logger from '../utils/logger'
 
 export class IngredientsService {
   constructor(private readonly ingredientsRepository: IngredientsRepository) {}
 
-  async findOneIngredientById(query: { id: string }) {
+  async findOneIngredientById(
+    query: { id: string },
+    tx?: Prisma.TransactionClient
+  ) {
     try {
       const ingredient = await this.ingredientsRepository.findOneIngredientById(
-        query
+        query,
+        tx
       )
 
       if (!ingredient) {
@@ -26,12 +31,14 @@ export class IngredientsService {
   }
   async updateStockByIngredientId(
     query: { id: string },
-    args: { stock?: number; emailSent?: boolean }
+    args: { stock?: number; emailSent?: boolean },
+    tx?: Prisma.TransactionClient
   ) {
     try {
       return await this.ingredientsRepository.updateStockByIngredientId(
         query,
-        args
+        args,
+        tx
       )
     } catch (error) {
       logger.error(

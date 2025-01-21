@@ -17,6 +17,7 @@ services:
       - EMAIL_PASS=${EMAIL_PASS}
       - EMAIL_FROM=${EMAIL_FROM}
       - EMAIL_TO=${EMAIL_TO}
+      - LOW_STOCK_THRESHOLD=${LOW_STOCK_THRESHOLD}
     depends_on:
       postgres:
         condition: service_healthy

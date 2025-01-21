@@ -3,9 +3,9 @@ FROM node:20-slim AS builder
 
 WORKDIR /app
 
-# Install dependencies
+# Install all dependencies, including development dependencies
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install
 
 # Copy application files
 COPY . .
@@ -30,7 +30,7 @@ COPY --from=builder /app /app
 # Install production dependencies
 RUN yarn install --production
 
-# Run database migrations, seed data, and start the app
+# Define default command for production
 CMD sh -c "npx wait-on tcp:postgres:5432 tcp:redis:6379 && \
     npx prisma migrate deploy && \
     node dist/prisma/seed.js && \

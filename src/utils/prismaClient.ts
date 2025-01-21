@@ -1,7 +1,6 @@
 export * from '@prisma/client'
 import { PrismaClient } from '@prisma/client'
 import 'dotenv/config'
-import logger from './logger'
 
 export const client = new PrismaClient({
   transactionOptions: {
