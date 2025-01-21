@@ -1,12 +1,13 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response } from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv';
-import ordersRouter from './routes/ordersRoutes';
-import logger from './utils/logger';
-import { isPrismaHealthy } from './utils';
-import { errorHandler } from './middlewares';
+import dotenv from 'dotenv'
+import ordersRouter from './routes/ordersRoutes'
+import logger from './utils/logger'
+import { isPrismaHealthy } from './utils'
+import { errorHandler } from './middlewares'
+import transporter from './utils/nodemailer'
 
-dotenv.config();
+dotenv.config()
 
 const app = express()
 const port = process.env.APP_PORT || 3000
@@ -24,11 +25,17 @@ app.get('/', async (req: Request, res: Response) => {
   }
 })
 
+app.use('/orders', ordersRouter)
 
-app.use('/orders', ordersRouter);
-
-app.use(errorHandler);
+app.use(errorHandler)
 
 app.listen(port, () => {
-  logger.info(`Server running on port ${port}`);
-});
+  logger.info(`Server running on port ${port}`)
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error('SMTP connection error:', error)
+    } else {
+      console.log('SMTP connection successful:', success)
+    }
+  })
+})

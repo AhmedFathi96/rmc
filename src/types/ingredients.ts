@@ -1,6 +1,6 @@
-export interface Ingredient{
-    id?: string;
-    name: string;
-    stock: number;
-    emailSent?: boolean;
-};
+export interface Ingredient {
+  id?: string
+  name: string
+  stock: number
+  emailSent?: boolean
+}

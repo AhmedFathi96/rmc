@@ -1,10 +1,10 @@
-import { emailQueue } from '../queues/emailQueue';
+import { emailQueue } from '../queues/emailQueue'
 
 export const sendEmail = async (emailData: {
-    to: string;
-    subject: string;
-    text?: string;
-    html?: string;
+  to: string
+  subject: string
+  text?: string
+  html?: string
 }) => {
-    await emailQueue.add('sendEmail', emailData);
-};
+  await emailQueue.add('send-email', emailData)
+}
