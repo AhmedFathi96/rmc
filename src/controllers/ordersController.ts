@@ -54,19 +54,26 @@ export const CreateOrder = async (args: { products: { productId: string; quantit
                         consumedQuantity,
                     });
 
-                    if (remainingPercentage <= 10 && !ingredient.emailSent) {
-                        logger.info(`Sending email for ingredient ${ingredientId}`);
+                    logger.info(`Sending email for ingredient ${ingredientId}`);
                         await sendEmail({ 
                             to: process.env.EMAIL_TO || '', 
                             subject: 'WARNING: Low stock of an ingredient', 
                             text: `The stock for ${ingredient.name} is critically low. Only ${remainingPercentage}% remains.`,
                         });
+                        
+                    // if (remainingPercentage <= 10 && !ingredient.emailSent) {
+                    //     logger.info(`Sending email for ingredient ${ingredientId}`);
+                    //     await sendEmail({ 
+                    //         to: process.env.EMAIL_TO || '', 
+                    //         subject: 'WARNING: Low stock of an ingredient', 
+                    //         text: `The stock for ${ingredient.name} is critically low. Only ${remainingPercentage}% remains.`,
+                    //     });
 
-                        // await ingredientsService.updateStockByIngredientId({
-                        //     id: ingredientId,
-                        //     emailSent: true,
-                        // });
-                    }
+                    //     // await ingredientsService.updateStockByIngredientId({
+                    //     //     id: ingredientId,
+                    //     //     emailSent: true,
+                    //     // });
+                    // }
                 })
             );
 

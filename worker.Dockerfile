@@ -7,10 +7,10 @@ WORKDIR /worker
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-# Copy the rest of the files
+# Copy the rest of the application files
 COPY . .
 
-# Build the worker
+# Build the worker code
 RUN yarn build
 
 # Stage 2: Runner
@@ -18,19 +18,13 @@ FROM node:20-alpine
 
 WORKDIR /worker
 
-# Install dependencies
+# Install dependencies for production
 RUN apk add --no-cache libc6-compat openssl curl
 
-# Copy files from builder
-COPY --from=builder /worker /worker
-
-# Install production dependencies
-RUN yarn install --production
-
-# Copy the built files
+# Copy only the necessary files from the builder stage
 COPY --from=builder /worker/dist /worker/dist
+COPY --from=builder /worker/package.json /worker/package.json
+COPY --from=builder /worker/node_modules /worker/node_modules
 
-# Run database migrations and start the worker
-CMD sh -c "npx wait-on tcp:postgres:5432 tcp:redis:6379 && \
-    npx prisma migrate deploy && \
-    node dist/worker.js"
+# Set the default command to run the worker
+CMD ["node", "dist/src/worker.js"]

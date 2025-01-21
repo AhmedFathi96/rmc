@@ -27,17 +27,14 @@ RUN apt-get update && apt-get install -y openssl curl && rm -rf /var/lib/apt/lis
 # Copy files from builder
 COPY --from=builder /app /app
 
-# Copy seed script
-COPY ./prisma/seed.js /app/prisma/seed.js
-
 # Install production dependencies
 RUN yarn install --production
 
 # Run database migrations, seed data, and start the app
 CMD sh -c "npx wait-on tcp:postgres:5432 tcp:redis:6379 && \
     npx prisma migrate deploy && \
-    node prisma/seed.js && \
-    node dist/index.js"
+    node dist/prisma/seed.js && \
+    node dist/src/index.js"
 
 # Expose the application port
 EXPOSE 3000
