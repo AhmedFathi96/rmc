@@ -1566,3 +1566,25 @@ Please make sure your database server is running at `postgres`:`5432`.
 [2025-01-21 23:40:46] ERROR: Error happened while checking remaining ingredient test-ingredient percentage Consumed quantity for ingredient test-ingredient cannot be negative
 [2025-01-21 23:40:46] INFO: Checking remaining ingredient test-ingredient percentage
 [2025-01-21 23:40:46] ERROR: Error happened while checking remaining ingredient test-ingredient percentage Insufficient stock for ingredient test-ingredient. Stock cannot be negative.
+[2025-01-21 23:42:15] INFO: Queue is connected to Redis:
+[2025-01-21 23:42:15] ERROR: Error happened while creating order Database error
+[2025-01-21 23:42:15] INFO: Calling create order controller with args
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient beef percentage
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient cheese percentage
+[2025-01-21 23:42:15] INFO: Order created successfully
+[2025-01-21 23:42:15] ERROR: Queue connection error: Port should be >= 0 and < 65536. Received NaN.
+[2025-01-21 23:42:15] ERROR: Queue connection error: Port should be >= 0 and < 65536. Received NaN.
+[2025-01-21 23:42:15] ERROR: Product with id: 123 not found
+[2025-01-21 23:42:15] ERROR: Error happened while finding product with id: 123 Product with id: 123 not found
+[2025-01-21 23:42:15] ERROR: Error happened while finding product with id: 123 Database error
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient test-ingredient percentage
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient test-ingredient percentage
+[2025-01-21 23:42:15] ERROR: Error happened while checking remaining ingredient test-ingredient percentage Stock for ingredient test-ingredient is invalid
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient test-ingredient percentage
+[2025-01-21 23:42:15] ERROR: Error happened while checking remaining ingredient test-ingredient percentage Consumed quantity for ingredient test-ingredient cannot be negative
+[2025-01-21 23:42:15] INFO: Checking remaining ingredient test-ingredient percentage
+[2025-01-21 23:42:15] ERROR: Error happened while checking remaining ingredient test-ingredient percentage Insufficient stock for ingredient test-ingredient. Stock cannot be negative.
+[2025-01-21 23:42:15] ERROR: Ingredient with id: 123 not found
+[2025-01-21 23:42:15] ERROR: Error happened while finding ingredient with id: 123 Ingredient with id: 123 not found
+[2025-01-21 23:42:15] ERROR: Error happened while finding ingredient with id: 123 Database error
+[2025-01-21 23:42:15] ERROR: Error happened while updating stock for ingredient with id: 123 Database error
